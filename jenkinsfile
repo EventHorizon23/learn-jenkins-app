@@ -5,6 +5,8 @@ pipeline {
         NETLIFY_SITE_ID = '42c2ebe8-d9fd-4758-99a3-cddcf07e9098'
         NETLIFY_AUTH_TOKEN = credentials('netlify-token')
     }
+
+    stages {
         stage('Build') {
             agent {
                 docker {
