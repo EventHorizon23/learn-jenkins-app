@@ -96,8 +96,10 @@ pipeline {
 
         stage('Approval') {
             steps {
-            input message: 'Ready to Approve Dick Ass?', ok: 'Yes, I am sure'
-            }
+                timeout(time: 15, unit: 'MINUTES') {
+                    input message: 'Ready to Approve Dick Ass?', ok: 'Yes, I am sure'
+                    }
+                }
         }
 
         stage('Deploy prod') {
