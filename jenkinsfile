@@ -94,6 +94,10 @@ pipeline {
             }
         }
 
+        stage('Approval') {
+            input message: 'Ready to Approve Dick Ass?', ok: 'Yes, I am sure'
+        }
+
         stage('Deploy prod') {
             agent {
                 docker {
