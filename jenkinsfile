@@ -71,9 +71,10 @@ pipeline {
 
                     steps {
                         sh '''
+                            CI_ENVIRONMENT_URL=$(node-jq -r '.deploy_url' deploy-output.json)
                             serve -s build &
                             sleep 10
-                            CI_ENVIRONMENT_URL=$(node-jq -r '.deploy_url' deploy-output.json)
+                            
                             npx playwright test  --reporter=html
                         '''
                     }
